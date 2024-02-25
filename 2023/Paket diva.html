@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+
+.box {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+</style>
+</head>
+<body>
+    <ul class="menu">
+        <li ><a href="#" style="color: red;">Beranda</a></li>
+        <li ><a href="#" style="color: blue;">Divisi</a>
+            <ul class="submenu">
+                <li><a href="#">BPH</a></li>
+                <li><a href="#">Medkominfo</a></li>
+                <li><a href="#">Edukasi</a></li>
+                <li><a href="#">Humas</a></li>
+                <li><a href="#">PSDM</a></li>
+                <li><a href="#">Iltek</a></li>
+                <li><a href="#">Kreus</a></li>
+                <li><a href="#">Mikat</a></li>
+            </ul>
+        </li>
+        <li ><a href="#" style="color: aqua;">Tentang Kami</a></li>
+        <li ><a href="#" style="color: yellow;">Kontak</a></li>
+    </ul>
+    <div class="container">
+        <div class="box" style="font-weight: bolder; border: dashed ;">Anindya Diva Talitha</div><br>
+        <div class="box" style="font-style: italic; border: dotted;">H1D022026</div><br>
+        <div class="box" style="text-decoration: underline; border: double;">Bendahara Edukasi HMIF</div>
+    </div>
+</body>
+</html>

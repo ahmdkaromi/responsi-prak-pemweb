@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+
+.box {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+</style>
+</head>
+<body>
+    <ul class="menu">
+        <li style="background-color: red;"><a href="#">Beranda</a></li>
+        <li style="background-color: blue;"><a href="#">Divisi</a>
+            <ul class="submenu">
+                <li><a href="#">BPH</a></li>
+                <li><a href="#">Medkominfo</a></li>
+                <li><a href="#">Edukasi</a></li>
+                <li><a href="#">Humas</a></li>
+                <li><a href="#">PSDM</a></li>
+                <li><a href="#">Iltek</a></li>
+                <li><a href="#">Kreus</a></li>
+                <li><a href="#">Mikat</a></li>
+            </ul>
+        </li>
+        <li style="background-color: aqua;"><a href="#">Tentang Kami</a></li>
+        <li style="background-color: yellow;"><a href="#">Kontak</a></li>
+    </ul>
+    <div class="container">
+        <div class="box red" style="font-weight: bolder;">Eka Belandini</div>
+        <div class="box green" style="font-style: italic;">H1D022002</div>
+        <div class="box blue" style="text-decoration: underline;">Sekretaris HMIF</div>
+    </div>
+</body>
+</html>

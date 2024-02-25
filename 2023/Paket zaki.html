@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Zaki</title>
+</head>
+<body>
+    <table>
+        <form>
+            <th colspan="5"></th>
+            <tr>
+                <td><label for="nim">NIK</label></td>
+                <td><input type="text" id="nim" name="nim" pattern="^\d{16}$" placeholder="0102030405060708" required></td>
+            </tr>
+            <tr>
+                <td><label for="username">No. Telp</label></td>
+                <td><input type="text" placeholder="Contoh: +6281383093303" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" id="email" name="email" pattern="^[a-zA-Z]+\.\[a-zA-Z]+@\.mhs\.unsoed\.ac\.id$" placeholder="ahmad.hamidy@mhs.unsoed.ac.id" required></td>
+            </tr>
+            <tr>
+                <td><label for="Birthday">Birthday</label></td>
+                <td><input type="text" pattern="\d{2}-\d{2}-\d{4}" placeholder="DD-MM-YYYY" required></td>
+            </tr>
+            <tr><td><input type="submit"></td></tr>
+            <!--
+                <tr>
+                <td><label for="website">Website</label></td>
+                <td><input type="url" pattern="https?://.+" placeholder="https://www.google.com" required></td>
+            </tr>
+                <tr>
+                <td><label for="surat">Nomor Surat</label></td>
+                <td><input type="text" id="nomor_surat" name="nomor_surat" pattern="[A-Z]{2}/\d{4}/\d{4}" placeholder="Contoh: AA/0001/0001" required></td>
+            </tr>
+                <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$" placeholder="Contoh: Nabilla58?" required></td>
+            </tr>
+            
+            <tr>
+                <td><label for="no">Phone Number</label></td>
+                <td><input type="tel" pattern="^\+62\d{9,12}$" placeholder="+628123456789" required></td>
+            </tr>
+            
+            <tr>
+                <td><label for="plat">Plat No.</label></td>
+                <td><input type="text" pattern="[A-Z]{1,2}\s\d{4}\s[A-Z]{1,2}" placeholder="Contoh: B 1234 CD" required></td>
+            </tr>
+            <tr>
+                <td><label for="kode">Kode Pos</label></td>
+                <td><input type="text" pattern="\d{5}" placeholder="Contoh: 90210" required></td>
+            </tr>
+            <tr>
+                <td><label for="nik">NIK</label></td>
+                <td><input type="text" id="nik" name="nik" pattern="^\d{16}$" placeholder="Contoh: 1234567890123456" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+            -->
+        </form>
+    </table>
+</body>
+</html>

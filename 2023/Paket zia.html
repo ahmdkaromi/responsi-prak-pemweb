@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Kembalian</title>
+</head>
+<body>
+  <h1>Kalkulator Kembalian</h1>
+  
+  <form id="changeCalculator">
+    <label for="totalPurchase">Total Pembelian (Rp): </label>
+    <input type="number" id="totalPurchase" required>
+    <br>
+    <label for="customerPayment">Pembayaran Pelanggan (Rp): </label>
+    <input type="number" id="customerPayment" required>
+    <br>
+    <button type="button" onclick="calculateChange()">Hitung Kembalian</button>
+  </form>
+
+  <div id="changeResult">
+    <p>Hasil Kembalian: Uang pas
+    </p>
+  </div>
+  
+  <script>
+    function calculateChange() {
+      const totalPurchase = parseInt(document.getElementById("totalPurchase").value, 10);
+      const customerPayment = parseInt(document.getElementById("customerPayment").value, 10);
+      
+      const availableDenominations = [100000, 50000, 20000, 10000, 5000, 2000, 1000, 500];
+      const change = customerPayment - totalPurchase;
+      const changeResult = {};
+
+      if (change < 0) {
+        document.getElementById("changeResult").innerHTML = "Pembayaran kurang";
+        return;
+      }
+
+      for (let denomination of availableDenominations) {
+        if (change >= denomination) {
+          const count = Math.floor(change / denomination);
+          changeResult[denomination] = count;
+          change -= count * denomination;
+        }
+      }
+
+      if (change > 0) {
+        document.getElementById("changeResult").innerHTML = "Maaf, toko tidak memiliki pecahan uang/koin yang cukup.";
+        return;
+      }
+
+      let resultHTML = "<ul>";
+      for (let denomination in changeResult) {
+        resultHTML += "<li>" + denomination + " Rupiah: " + changeResult[denomination] + " lembar</li>";
+      }
+      resultHTML += "</ul>";
+
+      document.getElementById("changeResult").innerHTML = "Kembalian:<br>" + resultHTML;
+    }
+  </script>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Password</title>
+</head>
+<body>
+  <h1>Kalkulator Password</h1>
+  
+  <form id="primeNumbers">
+    <label for="numberA">Bilangan Prima A: </label>
+    <input type="number" id="numberA" required>
+    <br>
+    <label for="numberB">Bilangan Prima B: </label>
+    <input type="number" id="numberB" required>
+    <br>
+    <label for="numberC">Bilangan Prima C: </label>
+    <input type="number" id "numberC" required>
+    <br>
+    <button type="button" onclick="calculatePassword()">Hitung Password</button>
+  </form>
+
+  <div id="passwordResult">
+    <p>Password: 5 11 13 17 19</p>
+  </div>
+  
+  <script>
+    function isPrime(number) {
+      if (number <= 1) return false;
+      if (number <= 3) return true;
+      if (number % 2 === 0 || number % 3 === 0) return false;
+      
+      let i = 5;
+      while (i * i <= number) {
+        if (number % i === 0 || number % (i + 2) === 0) return false;
+        i += 6;
+      }
+      return true;
+    }
+
+    function calculatePassword() {
+      const numberA = parseInt(document.getElementById("numberA").value, 10);
+      const numberB = parseInt(document.getElementById("numberB").value, 10);
+      const numberC = parseInt(document.getElementById("numberC").value, 10);
+      
+      const password = [];
+      let count = 2;
+
+      while (password.length < 6) {
+        if (count % numberA !== 0 && count % numberB !== 0 && count % numberC !== 0) {
+          password.push(count);
+        }
+        count++;
+      }
+
+      document.getElementById("passwordResult").innerHTML = "Password: " + password.join(", ");
+    }
+  </script>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Calculate Score</title>
+  </head>
+  <body>
+    <h1>Kalkulator Poin</h1>
+    <form id="inputForm">
+      <label for="numberInput">Masukkan bilangan:</label>
+      <input type="number" id="numberInput" required>
+      <button type="button" id="addButton">Jumlahkan</button>
+    </form>
+    
+    <div id="scoreDisplay">
+      Total Poin: <span id="totalScore">0</span>
+    </div>
+    
+    <script>
+      const numbers = [];
+  
+      function calculateScore(arr) {
+        let totalScore = 0;
+  
+        for (let i = 0; i < arr.length; i++) {
+          const number = arr[i];
+  
+          if (number === 5) {
+            totalScore += 5;
+          } else if (number % 2 === 0) {
+            totalScore += 1;
+          } else if (number % 2 !== 0 && number !== 5) {
+            totalScore += 3;
+          }
+        }
+  
+        return totalScore;
+      }
+  
+      const addButton = document.getElementById("addButton");
+      const numberInput = document.getElementById("numberInput");
+      const totalScoreDisplay = document.getElementById("totalScore");
+      
+      addButton.addEventListener("click", function () {
+        const number = parseInt(numberInput.value, 10);
+        numbers.push(number);
+        numberInput.value = "";
+        totalScoreDisplay.textContent = calculateScore(numbers);
+      });
+    </script>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Car Information</title>
+    </head>
+    <body>
+      <h1>Car Information</h1>
+      
+      <form id="carForm">
+        <label for="makeInput">Make: </label>
+        <input type="text" id="makeInput" required>
+        <br>
+        <label for="modelInput">Model: </label>
+        <input type="text" id="modelInput" required>
+        <br>
+        <label for="yearInput">Year: </label>
+        <input type="number" id="yearInput" required>
+        <br>
+        <label for="doorsInput">Number of Doors: </label>
+        <input type="number" id="doorsInput" required>
+        <br>
+        <button type="button" onclick="createCar()">Create Car</button>
+      </form>
+    
+      <div id="carDetails">
+        <h2>Car Details:</h2>
+      </div>
+      
+      <script>
+        class Vehicle {
+          constructor(make, model, year) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+          }
+    
+          displayDetails() {
+            return `Make: ${this.make}, Model: ${this.model}, Year: ${this.year}`;
+          }
+        }
+    
+        class Car extends Vehicle {
+          constructor(make, model, year, doors) {
+            super(make, model, year);
+            this.doors = doors;
+          }
+    
+          displayDetails() {
+            return super.displayDetails() + `, Doors: ${this.doors}`;
+          }
+        }
+    
+        function createCar() {
+          const make = document.getElementById("makeInput").value;
+          const model = document.getElementById("modelInput").value;
+          const year = parseInt(document.getElementById("yearInput").value, 10);
+          const doors = parseInt(document.getElementById("doorsInput").value, 10);
+    
+          const car = new Car(make, model, year, doors);
+          document.getElementById("carDetails").innerHTML = "Car Details:<br>" + car.displayDetails();
+        }
+      </script>
+    </body>
+    </html>
+    
+  </body>
+  </html>
+  
+</body>
+</html>
+
+</body>
+</html>
